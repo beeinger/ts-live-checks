@@ -10,11 +10,11 @@ An extension providing real time TS checks repository-wide.
 
 Imagine you have your TS repo and inside you have an error. While you have the file open the editor is showing you the error, that's good!
 
-![ts-project example](https://lh4.googleusercontent.com/AjdBCy_k1p7Y4Ffvj9OPK2RpAa4YPI5BKIlgCBZn4UsuLV180pwU92QvSurEvu70no62Gq9OBuTCQJvtYSPX=w3360-h1942)
+![ts-project example](https://raw.githubusercontent.com/beeinger/ts-live-checks/main/images/1.png)
 
 but then as soon as you close this file...
 
-![ts-project example](https://lh4.googleusercontent.com/uzDKzv2W8pqWWRquA9BFuqpyQHNDOCi6VvMpx43Pzko1nfPL-p1pe_mYRzwqRaT-vjplN1sNqRjtHv7o10HQ=w3360-h1942)
+![ts-project example](https://raw.githubusercontent.com/beeinger/ts-live-checks/main/images/2.png)
 
 everything is fine, the error is still there, you're sure of it, but the editor seems to be fine with that :c
 
@@ -26,7 +26,7 @@ That's just how VSCode's typescript works right now...
 
 **Imagine you have this extension installed, when you open your TS repo you see this:**
 
-![ts-project example](https://lh5.googleusercontent.com/EI_GM8hcHqGNJxluiQJdRxyHtAwJHogzuePVrvZhmF-HtXYpokJoqjZ-eKLkbL9O7Xy4V96sgsbrEIadkR_d=w3360-h1942)
+![ts-project example](https://raw.githubusercontent.com/beeinger/ts-live-checks/main/images/3.png)
 
 **TS checks that run in real time for your whole repo, not just one file, now you can see all the errors, everywhere**
 
