@@ -4,6 +4,9 @@
   "description": "Provides real time TypeScript tests repo-wide.",
   "icon": "images/icon.png",
   "version": "0.0.1",
+  "author": {
+    "name": "beeinger"
+  },
   "engines": {
     "vscode": "^1.65.0"
   },
@@ -15,9 +18,6 @@
     "workspaceContains:/tsconfig.json"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "tasks": []
-  },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
@@ -33,5 +33,14 @@
     "eslint": "^8.9.0",
     "typescript": "^4.5.5",
     "@vscode/test-electron": "^2.1.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/beeinger/ts-live-checks/issues",
+    "email": "maciej@beeinger.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeinger/ts-live-checks.git"
+  },
+  "homepage": "https://github.com/beeinger/ts-live-checks#readme"
 }
