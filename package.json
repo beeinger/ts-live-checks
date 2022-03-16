@@ -2,8 +2,9 @@
   "name": "ts-live-checks",
   "displayName": "TS Live Checks",
   "description": "Provides real time TypeScript tests repo-wide.",
-  "icon": "images/icon.png",
+  "icon": "icon.png",
   "version": "0.0.1",
+  "publisher": "beeinger",
   "author": {
     "name": "beeinger"
   },
