@@ -33,13 +33,36 @@ function isThisTask(task: any) {
   );
 }
 
+function parseJson(data: string) {
+  try {
+    return JSON.parse(
+      data.replace(
+        /\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/|\#.*)/g,
+        (m, g) => (g ? "" : m)
+      )
+    );
+  } catch (e) {
+    vscode.window.showErrorMessage("TS Live Checks: Invalid tasks.json");
+    return null;
+  }
+}
+
+async function shouldEnable() {
+  const answer = await vscode.window.showInformationMessage(
+    "Do you want to enable TS Live Checks in this repository?",
+    "Yes",
+    "No"
+  );
+  return answer === "Yes";
+}
+
 export async function activate(context: vscode.ExtensionContext) {
   const tsconfigExists =
     (await vscode.workspace.findFiles("tsconfig.json"))[0] !== undefined;
 
   if (!tsconfigExists) {
     return vscode.window.showInformationMessage(
-      "TS Live Checks: No tsconfig.json found"
+      "TS Live Checks: No tsconfig.json found, create one if you want to use TS Live Checks."
     );
   }
 
@@ -52,21 +75,17 @@ export async function activate(context: vscode.ExtensionContext) {
   if (tasksJson !== undefined) {
     let raw = (await vscode.workspace.fs.readFile(tasksJson)).toString();
 
-    try {
-      payload = JSON.parse(raw) as typeof TASK;
-    } catch (e) {
-      console.log(e);
-      return vscode.window.showErrorMessage(
-        "TS Live Checks: Invalid tasks.json"
-      );
-    }
+    payload = parseJson(raw);
+    if (payload === null) return;
 
     for (let task of payload.tasks) if (isThisTask(task)) exists = true;
     if (!exists) {
+      if (!(await shouldEnable())) return;
       payload.tasks.push(TASK.tasks[0]);
       fs.writeFileSync(tasksJson.fsPath, JSON.stringify(payload, null, 2));
     }
   } else {
+    if (!(await shouldEnable())) return;
     payload = TASK;
     const vsCode =
       vscode.workspace.workspaceFolders![0].uri.fsPath +

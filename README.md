@@ -2,8 +2,6 @@
 
 An extension providing real time TS checks repository-wide.
 
----
-
 ## The past
 
 **_Note: Idk how you lived without this extension so far..._**
@@ -19,8 +17,6 @@ but then as soon as you close this file...
 everything is fine, the error is still there, you're sure of it, but the editor seems to be fine with that :c
 
 That's just how VSCode's typescript works right now...
-
----
 
 ## The future
 
